@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>536fb50c-3864-48e3-9f11-4d59145c488e</ProjectGuid>
+    <ProjectGuid>{C03F5FA5-27B9-4B5A-B523-5688E526C8B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Gym.Logica</RootNamespace>
@@ -42,6 +42,16 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gym.Datos\Gym.Datos.csproj">
+      <Project>{29498272-7EF2-462D-985C-681249AB3971}</Project>
+      <Name>Gym.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gym.Entidades\Gym.Entidades.csproj">
+      <Project>{CCFC3E5A-E346-4E87-B43B-405853FD1ABE}</Project>
+      <Name>Gym.Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

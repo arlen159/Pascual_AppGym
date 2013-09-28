@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>9aaedc75-bf7c-4ceb-8d72-e172ed573e3b</ProjectGuid>
+    <ProjectGuid>{1C0D5905-7E39-421B-9DCC-96CB8D975FCC}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -72,6 +72,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gym.Entidades\Gym.Entidades.csproj">
+      <Project>{CCFC3E5A-E346-4E87-B43B-405853FD1ABE}</Project>
+      <Name>Gym.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gym.Logica\Gym.Logica.csproj">
+      <Project>{C03F5FA5-27B9-4B5A-B523-5688E526C8B6}</Project>
+      <Name>Gym.Logica</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
@@ -80,7 +90,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>57886</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
