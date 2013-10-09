@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
-  <App xmlns="" ProductID="{75be2fd2-a11c-4f65-bd19-5c7b7fe86c99}" Title="Gym.App" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="Gym.App author" Description="Sample description" Publisher="Gym.App">
+  <App xmlns="" ProductID="{75be2fd2-a11c-4f65-bd19-5c7b7fe86c99}" Title="Gym App" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="gymApp author" Description="Sample description" Publisher="gymApp">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_GAMERSERVICES"/>
@@ -20,14 +20,14 @@
       <Capability Name="ID_CAP_APPOINTMENTS"/>
     </Capabilities>
     <Tasks>
-      <DefaultTask  Name ="_default" NavigationPage="MainPage.xaml"/>
+      <DefaultTask  Name ="_default" NavigationPage="Programas.xaml"/>
     </Tasks>
     <Tokens>
-      <PrimaryToken TokenID="Gym.AppToken" TaskName="_default">
+      <PrimaryToken TokenID="Token" TaskName="_default">
         <TemplateType5>
           <BackgroundImageURI IsRelative="true" IsResource="false">Background.png</BackgroundImageURI>
           <Count>0</Count>
-          <Title>Gym.App</Title>
+          <Title>Gym App</Title>
         </TemplateType5>
       </PrimaryToken>
     </Tokens>

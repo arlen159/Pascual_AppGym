@@ -15,19 +15,33 @@
 
     <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.621*"/>
+    		<ColumnDefinition Width="0.379*"/>
+    	</Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="MI APLICACIÓN" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="nombre de la página" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
+        <Image Margin="-8,0,8,-32" Source="fondo.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="4,25,8,20" Grid.ColumnSpan="2">
+        	<TextBlock x:Name="PageTitle" Text="Usuario" Margin="9,-7,36,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="96" Height="114"/>
+        </StackPanel>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="4,8,20,-8" Background="#00AAD4FF" Grid.ColumnSpan="2">
+        	<TextBlock x:Name="Codigo" Height="37" Margin="8,35,226,0" TextWrapping="Wrap" Text="Codigo" VerticalAlignment="Top" FontSize="26.667"/>
+        	<TextBlock x:Name="Cedula" Height="30" Margin="8,130,226,0" TextWrapping="Wrap" Text="Cedula" VerticalAlignment="Top" FontSize="26.667"/>
+        	<TextBlock x:Name="Nombre" Margin="8,226,212,360" TextWrapping="Wrap" Text="Nombre" FontSize="26.667"/>
+        	<TextBlock x:Name="Correo" Height="30" Margin="8,0,186,260" TextWrapping="Wrap" Text="Correo" VerticalAlignment="Bottom" FontSize="26.667"/>
+        	<TextBox x:Name="TxtCodigo" Height="70" Margin="8,64,8,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionForeground="White"/>
+        	<TextBox x:Name="TxtCedula" Height="70" Margin="8,160,8,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        	<TextBox x:Name="TxtNombre" Margin="8,256,8,294" TextWrapping="Wrap" Width="440" Height="70"/>
+        	<TextBox x:Name="TxtCorreo" Height="70" Margin="8,0,8,194" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="440" Foreground="White"/>
+        </Grid>
+        <TextBlock Height="52" Margin="13,8,20,0" TextWrapping="Wrap" Text="gym app" VerticalAlignment="Top" FontSize="32" Grid.ColumnSpan="2"/>
     </Grid>
  
     <!--Código de ejemplo que muestra el uso de ApplicationBar-->
