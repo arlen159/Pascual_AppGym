@@ -10,7 +10,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 	<phone:PhoneApplicationPage.Resources>
 		<DataTemplate x:Key="ItemTemplate">
@@ -20,9 +20,9 @@
 		</DataTemplate>
 		<DataTemplate x:Key="ItemTemplate1">
 			<StackPanel Orientation="Horizontal" Margin="0,0,0,60">
-				<Image Source="{Binding Icono}" HorizontalAlignment="Left" Height="64" Width="64" RenderTransformOrigin="0.5,0.563" Margin="0,0,30,0"/>
+				<Image Source="{Binding Icono}" HorizontalAlignment="Left" Height="108" Width="106" RenderTransformOrigin="0.5,0.563" Margin="0,0,30,0"/>
 				<StackPanel Orientation="Vertical" Width="95">
-					<TextBlock Text="{Binding Programas}" Margin="0,20,-129,0" FontSize="32"/>
+					<TextBlock Text="{Binding Programas}" Margin="0,20,-209,0" FontSize="64" Foreground="#FFFEFDFD"/>
 				</StackPanel>
 			</StackPanel>
 		</DataTemplate>
@@ -38,26 +38,23 @@
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <Image Margin="0,11,0,-43" Source="fondo.png" Stretch="Fill" Grid.RowSpan="2"/>
-        <StackPanel x:Name="TitlePanel" Grid.Row="1" Margin="8,18,4,0" Height="116" VerticalAlignment="Top">
-        	<TextBlock x:Name="GymApp" Text="gym app" Style="{StaticResource PhoneTextNormalStyle}"/>
-        	<TextBlock x:Name="Programas1" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Text="Home"/>
+        <Rectangle Fill="#FF00AAD4" Margin="0,8,8,0" Grid.Row="1" Stroke="Black"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="1" Margin="16,10,-4,0" Height="116" VerticalAlignment="Top">
+        	<TextBlock x:Name="GymApp" Text="gym app" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#FFFEFDFD" FontSize="29.333"/>
+        	<TextBlock x:Name="Programas1" Margin="8,-30,0,0" Style="{StaticResource PhoneTextTitle1Style}" Text="Home" Foreground="#FF00AAD4" Height="158" RenderTransformOrigin="0.499,0.772" FontSize="93.333"/>
         </StackPanel>
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="8,162,16,-162">
-        	<ListBox ItemTemplate="{StaticResource ItemTemplate1}" ItemsSource="{Binding Collection}" Margin="0,0,16,16"/>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="16,154,8,-154">
+        	<ListBox ItemTemplate="{StaticResource ItemTemplate1}" ItemsSource="{Binding Collection}" Margin="8"/>
         </Grid>
     </Grid>
  
     <!--Código de ejemplo que muestra el uso de ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
+    <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Botón 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Botón 2"/>
+            <shell:ApplicationBarIconButton x:Name="btnSiguiente" IconUri="/icons/appbar.next.rest.png" Text="Next" Click="btnSiguiente_Click"/>
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="Elemento de menú 1"/>
-                <shell:ApplicationBarMenuItem Text="Elemento de menú 2"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>

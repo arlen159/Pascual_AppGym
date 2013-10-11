@@ -49,6 +49,10 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
+	public class ItemCollection : System.Collections.ObjectModel.ObservableCollection<Item>
+	{ 
+	}
+
 	public class Item : System.ComponentModel.INotifyPropertyChanged
 	{
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -98,10 +102,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
-	}
-
-	public class ItemCollection : System.Collections.ObjectModel.ObservableCollection<Item>
-	{ 
 	}
 #endif
 }

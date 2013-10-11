@@ -20,5 +20,22 @@ namespace Gym.App
         {
             InitializeComponent();
         }
+
+        private void btnGuardar_Click(object sender, System.EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Programas.xaml", UriKind.Relative));
+        }
+
+        private void btnBorrar_Click(object sender, System.EventArgs e)
+        {
+        	// TODO: Agregar implementación de controlador de eventos aquí.
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        
     }
 }

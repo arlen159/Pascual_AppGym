@@ -51,6 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
@@ -63,8 +64,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EntreDias.xaml.cs">
+      <DependentUpon>EntreDias.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpcionesProgramas.xaml.cs">
+      <DependentUpon>OpcionesProgramas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Programas.xaml.cs">
       <DependentUpon>Programas.xaml</DependentUpon>
@@ -79,7 +86,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="EntreDias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OpcionesProgramas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,9 +124,34 @@
     <Resource Include="fondo.png" />
     <Resource Include="Entrenamiento.png" />
     <Resource Include="Dietas.png" />
+    <Resource Include="IconoPro.png" />
+    <Resource Include="Dietas2.png" />
+    <Resource Include="Entrenamiento2.png" />
+    <Content Include="icons\appbar.back.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.delete.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.favs.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.next.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.save.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="SplashScreenImage.jpg" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\Dietas - copia.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\Dietas.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\Dietas1.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\Dietas2.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\Entrenamiento - copia.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\Entrenamiento.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\Entrenamiento1.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\Entrenamiento2.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\IconoPro.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image01.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image02.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\image03.png" />

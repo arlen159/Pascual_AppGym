@@ -17,8 +17,8 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Item">
-    <xs:attribute blend:Format="Lorem ipsum" blend:FormatParameters="4,8" name="Programas" type="xs:string" />
-    <xs:attribute name="Icono" type="tns:Basic-Image" />
+    <xs:attribute name="Programas" type="xs:string" />
+    <xs:attribute blend:FormatParameters="" name="Icono" type="tns:Basic-Image" />
   </xs:complexType>
   <xs:simpleType name="Basic-Image">
     <xs:restriction base="xs:anyURI" />

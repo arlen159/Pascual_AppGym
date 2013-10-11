@@ -6,12 +6,12 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
 
     <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -29,31 +29,30 @@
         <!--ContentPanel. Colocar aquí el contenido adicional-->
         <Image Margin="-8,0,8,-32" Source="fondo.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="4,25,8,20" Grid.ColumnSpan="2">
-        	<TextBlock x:Name="PageTitle" Text="Usuario" Margin="9,-7,36,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="96" Height="114"/>
+        	<TextBlock x:Name="PageTitle" Text="Usuario" Margin="9,-7,36,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="96" Height="114" Foreground="#FFFEFDFD"/>
         </StackPanel>
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="4,8,20,-8" Background="#00AAD4FF" Grid.ColumnSpan="2">
-        	<TextBlock x:Name="Codigo" Height="37" Margin="8,35,226,0" TextWrapping="Wrap" Text="Codigo" VerticalAlignment="Top" FontSize="26.667"/>
-        	<TextBlock x:Name="Cedula" Height="30" Margin="8,130,226,0" TextWrapping="Wrap" Text="Cedula" VerticalAlignment="Top" FontSize="26.667"/>
-        	<TextBlock x:Name="Nombre" Margin="8,226,212,360" TextWrapping="Wrap" Text="Nombre" FontSize="26.667"/>
-        	<TextBlock x:Name="Correo" Height="30" Margin="8,0,186,260" TextWrapping="Wrap" Text="Correo" VerticalAlignment="Bottom" FontSize="26.667"/>
-        	<TextBox x:Name="TxtCodigo" Height="70" Margin="8,64,8,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionForeground="White"/>
-        	<TextBox x:Name="TxtCedula" Height="70" Margin="8,160,8,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        	<TextBox x:Name="TxtNombre" Margin="8,256,8,294" TextWrapping="Wrap" Width="440" Height="70"/>
-        	<TextBox x:Name="TxtCorreo" Height="70" Margin="8,0,8,194" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="440" Foreground="White"/>
+        	<TextBox x:Name="txtCedula" Margin="0,160,16,0" TextWrapping="Wrap" Width="440" Height="70" d:LayoutOverrides="Height" VerticalAlignment="Top"/>
+        	<TextBlock x:Name="Codigo" Height="37" Margin="0,10,0,0" TextWrapping="Wrap" Text="Codigo" VerticalAlignment="Top" FontSize="26.667" HorizontalAlignment="Left" Width="222" FontWeight="Bold" Foreground="#FFFEFDFD"/>
+        	<TextBlock x:Name="Cedula" Height="30" Margin="0,126,0,0" TextWrapping="Wrap" Text="Cedula" VerticalAlignment="Top" FontSize="26.667" HorizontalAlignment="Left" Width="222" FontWeight="Bold" Foreground="#FFFEFDFD"/>
+        	<TextBlock x:Name="Nombre" Height="30" Margin="0,0,194,280" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="26.667" Foreground="#FFFEFDFD"><Run FontWeight="Bold" Text="Nombre"/><LineBreak/><Run/></TextBlock>
+        	<TextBox x:Name="TxtCodigo" Height="70" Margin="0,39,16,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionForeground="White"/>
+        	<TextBox x:Name="txtNombre" Margin="0,271,16,203" TextWrapping="Wrap"/>
+        	<TextBox x:Name="TxtCorreo" Height="70" Margin="0,0,16,92" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="440" Foreground="White"/>
+        	<TextBlock x:Name="ContentPanel2" Margin="8,226,212,360" TextWrapping="Wrap" Text="Nombre" FontSize="26.667" Foreground="White"/>
+        	<TextBlock x:Name="Correo" Height="37" Margin="0,0,0,166" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="26.667" HorizontalAlignment="Left" Width="222" Foreground="#FFFEFDFD"><Run FontWeight="Bold" Text="Correo"/><LineBreak/><Run/></TextBlock>
         </Grid>
-        <TextBlock Height="52" Margin="13,8,20,0" TextWrapping="Wrap" Text="gym app" VerticalAlignment="Top" FontSize="32" Grid.ColumnSpan="2"/>
+        <TextBlock Height="52" Margin="13,8,20,0" TextWrapping="Wrap" Text="gym app" VerticalAlignment="Top" FontSize="32" Grid.ColumnSpan="2" FontWeight="Bold" Foreground="#FFFEFDFD"/>
     </Grid>
  
     <!--Código de ejemplo que muestra el uso de ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
+    <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Botón 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Botón 2"/>
+            <shell:ApplicationBarIconButton x:Name="btnGuardar" IconUri="/icons/appbar.save.rest.png" Text="Guardar" Click="btnGuardar_Click"/>
+            <shell:ApplicationBarIconButton x:Name="btnBorrar" IconUri="/icons/appbar.delete.rest.png" Text="Borrar" Click="btnBorrar_Click"/>
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="Elemento de menú 1"/>
-                <shell:ApplicationBarMenuItem Text="Elemento de menú 2"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>

@@ -1,0 +1,88 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Gym.App.EntreDias"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot contiene la cuadrícula raíz donde se coloca el resto del contenido de la página-->
+    <Grid x:Name="LayoutRoot">
+        <controls:Panorama Title="gym programas" FontWeight="Bold" Margin="8,-8,-8,8" Background="#FF00AAD4" Foreground="White" BorderBrush="#FF00AAD4">
+
+            <!--Elemento Panorama uno-->
+            <controls:PanoramaItem Header="Descripcion">
+                <Grid>
+                	<Grid.ColumnDefinitions>
+                		<ColumnDefinition Width="0.986*"/>
+                		<ColumnDefinition Width="0.014*"/>
+                	</Grid.ColumnDefinitions>
+                	<TextBlock x:Name="txbDescripcion" Margin="6,10,0,8" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" FontSize="18.667" Grid.ColumnSpan="2"><Run FontSize="21.333" Text="Los primeros 5 ejercicios para pectorales que se describirán, son los mejores ejercicios para aumentar la fuerza y potencia muscular.  Tome en cuenta el tipo de ejercicio,  su número de series  y  repeticiones,así como el peso utilizado.Los últimos 3 ejercicios se utilizan para volumen muscular y aunque también pueden ser utilizados para"/><LineBreak/><Run FontSize="21.333" Text="incrementar la fuerza de sus pectorales,  si su objetivo es la potencia muscular,  es  mejor  practicar  los"/><Run FontSize="21.333" Text=" "/><Run FontSize="21.333" Text="primeros 5 ejercicios.  Antes de iniciar éstos ejercicios no olvide calentar adecuadamente los músculo"/><Run FontSize="21.333" Text="s."/><LineBreak/><Run Text=""/></TextBlock>
+                </Grid>
+            </controls:PanoramaItem>
+
+            <!--Elemento Panorama dos-->
+            <controls:PanoramaItem Header="Dia 1">
+                <Grid>
+                	<TextBlock Margin="0,0,0,8" TextWrapping="Wrap" Foreground="White" FontWeight="Bold"><Run FontSize="24" Text="Ejercicio para pectorales: Paralelas">
+                			<Run.Foreground>
+                				<SolidColorBrush Color="#FF51FA03">
+                					<SolidColorBrush.RelativeTransform>
+                						<MatrixTransform Matrix="Identity"/>
+                					</SolidColorBrush.RelativeTransform>
+                					<SolidColorBrush.Transform>
+                						<MatrixTransform Matrix="Identity"/>
+                					</SolidColorBrush.Transform>
+                				</SolidColorBrush>
+                			</Run.Foreground>
+                		</Run><Run FontSize="24" Text=".">
+                			<Run.Foreground>
+                				<SolidColorBrush Color="#FF51FA03">
+                					<SolidColorBrush.RelativeTransform>
+                						<MatrixTransform Matrix="Identity"/>
+                					</SolidColorBrush.RelativeTransform>
+                					<SolidColorBrush.Transform>
+                						<MatrixTransform Matrix="Identity"/>
+                					</SolidColorBrush.Transform>
+                				</SolidColorBrush>
+                			</Run.Foreground>
+                		</Run><LineBreak/><Run FontSize="29.333"/><LineBreak/><Run FontSize="18.667" Text=" • Sostengase  con  sus  dos  manos  en  las  barras paralelas y flexione las rodillas."/><LineBreak/><Run FontSize="18.667" Text="• Descienda  el  cuerpo  por  medio de la flexión de  ambos brazos."/><LineBreak/><Run FontSize="18.667" Text="• Luego eleve su cuerpo extendiendo los brazos."/><LineBreak/><Run FontSize="18.667" Text="Modificación: Cuando se encuentre en un nivel avanzado, puede sostener  una  mancuerna  entre  sus  pies  para aumentar la intensidad del ejercicio."/><LineBreak/><Run FontSize="18.667" Text="Recomendaciones:"/><LineBreak/><Run FontSize="18.667" Text="• El descenso del cuerpo deberá ser completo."/><LineBreak/><Run FontSize="18.667" Text="Músculos trabajados: Pectorales, hombros y tríceps."/><LineBreak/><Run FontSize="18.667" Text="Plan de entrenamiento para pectorales:"/><LineBreak/><Run FontSize="21.333" Text="4 series de 8-10 repeticiones.">
+                			<Run.Foreground>
+                				<SolidColorBrush Color="#FF51FA03">
+                					<SolidColorBrush.RelativeTransform>
+                						<MatrixTransform Matrix="Identity"/>
+                					</SolidColorBrush.RelativeTransform>
+                					<SolidColorBrush.Transform>
+                						<MatrixTransform Matrix="Identity"/>
+                					</SolidColorBrush.Transform>
+                				</SolidColorBrush>
+                			</Run.Foreground>
+                		</Run><LineBreak/><Run Text=""/></TextBlock>
+                </Grid>
+            </controls:PanoramaItem>
+            <controls:PanoramaItem Header="Dia 3">
+            	<Grid/>
+            </controls:PanoramaItem>
+            <controls:PanoramaItem Header="Dia 4">
+            	<Grid/>
+            </controls:PanoramaItem>
+            <controls:PanoramaItem Header="Dia 5">
+            	<Grid/>
+            </controls:PanoramaItem>
+            <controls:PanoramaItem Header="item6">
+            	<Grid/>
+            </controls:PanoramaItem>
+        </controls:Panorama>
+    </Grid>
+
+    <!--Las aplicaciones basadas en Panorama no deben mostrar un elemento ApplicationBar-->
+
+</phone:PhoneApplicationPage>

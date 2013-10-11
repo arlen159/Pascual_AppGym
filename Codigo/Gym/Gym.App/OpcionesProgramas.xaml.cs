@@ -13,16 +13,11 @@ using Microsoft.Phone.Controls;
 
 namespace Gym.App
 {
-    public partial class Programas : PhoneApplicationPage
+    public partial class OpcionesProgramas : PhoneApplicationPage
     {
-        public Programas()
+        public OpcionesProgramas()
         {
             InitializeComponent();
-        }
-
-        private void btnSiguiente_Click(object sender, System.EventArgs e)
-        {
-        	// TODO: Agregar implementación de controlador de eventos aquí.
         }
     }
 }
