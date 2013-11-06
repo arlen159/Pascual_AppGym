@@ -20,9 +20,11 @@ namespace Gym.App
             InitializeComponent();
         }
 
-        private void btnSiguiente_Click(object sender, System.EventArgs e)
+        private void btnPlanes_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-        	// TODO: Agregar implementación de controlador de eventos aquí.
+            NavigationService.Navigate(new Uri("/EntreDias.xaml", UriKind.Relative));
         }
+
+        
     }
 }

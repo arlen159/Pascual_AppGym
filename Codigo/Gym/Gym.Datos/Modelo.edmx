@@ -4,11 +4,123 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Namespace="Modelo.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="ModeloTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="Modelo.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModeloStoreContainer">
+    <EntitySet Name="Usuarios" EntityType="Modelo.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Controles" EntityType="Modelo.Store.Controles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tips" EntityType="Modelo.Store.Tips" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Planes" EntityType="Modelo.Store.Planes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipoPlanes" EntityType="Modelo.Store.TipoPlanes" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="TipoPlanPlan" Association="Modelo.Store.TipoPlanPlan">
+      <End Role="TipoPlan" EntitySet="TipoPlanes" />
+      <End Role="Plan" EntitySet="Planes" />
+    </AssociationSet>
+    <AssociationSet Name="PlanTip" Association="Modelo.Store.PlanTip">
+      <End Role="Plan" EntitySet="Planes" />
+      <End Role="Tip" EntitySet="Tips" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioPlan" Association="Modelo.Store.UsuarioPlan">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Plan" EntitySet="Planes" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioControl" Association="Modelo.Store.UsuarioControl">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Control" EntitySet="Controles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cedula" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Controles">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Estatura" Type="float" Nullable="false" />
+    <Property Name="Observacion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UsuarioControl_Control_Codigo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tips">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Plan_Codigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Planes">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipoPlan_Codigo" Type="int" Nullable="false" />
+    <Property Name="UsuarioPlan_Plan_Codigo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoPlanes">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="TipoPlanPlan">
+    <End Role="TipoPlan" Type="Modelo.Store.TipoPlanes" Multiplicity="1" />
+    <End Role="Plan" Type="Modelo.Store.Planes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPlan">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Plan">
+        <PropertyRef Name="TipoPlan_Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlanTip">
+    <End Role="Plan" Type="Modelo.Store.Planes" Multiplicity="1" />
+    <End Role="Tip" Type="Modelo.Store.Tips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plan">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Tip">
+        <PropertyRef Name="Plan_Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsuarioPlan">
+    <End Role="Usuario" Type="Modelo.Store.Usuarios" Multiplicity="1" />
+    <End Role="Plan" Type="Modelo.Store.Planes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Plan">
+        <PropertyRef Name="UsuarioPlan_Plan_Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsuarioControl">
+    <End Role="Usuario" Type="Modelo.Store.Usuarios" Multiplicity="1" />
+    <End Role="Control" Type="Modelo.Store.Controles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Control">
+        <PropertyRef Name="UsuarioControl_Control_Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Modelo" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
@@ -99,13 +211,87 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="Modelo" />
-        <Alias Key="Target" Value="Modelo.Store" />
-        <EntityContainerMapping CdmEntityContainer="ModeloContainer" StorageEntityContainer="ModeloTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="ModeloContainer">
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.Usuario)">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Controles">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.Control)">
+        <MappingFragment StoreEntitySet="Controles">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Estatura" ColumnName="Estatura" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tips">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.Tip)">
+        <MappingFragment StoreEntitySet="Tips">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Planes">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.Plan)">
+        <MappingFragment StoreEntitySet="Planes">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPlanes">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.TipoPlan)">
+        <MappingFragment StoreEntitySet="TipoPlanes">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="TipoPlanPlan" TypeName="Modelo.TipoPlanPlan" StoreEntitySet="Planes">
+      <EndProperty Name="TipoPlan">
+        <ScalarProperty Name="Codigo" ColumnName="TipoPlan_Codigo" />
+      </EndProperty>
+      <EndProperty Name="Plan">
+        <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PlanTip" TypeName="Modelo.PlanTip" StoreEntitySet="Tips">
+      <EndProperty Name="Plan">
+        <ScalarProperty Name="Codigo" ColumnName="Plan_Codigo" />
+      </EndProperty>
+      <EndProperty Name="Tip">
+        <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UsuarioPlan" TypeName="Modelo.UsuarioPlan" StoreEntitySet="Planes">
+      <EndProperty Name="Usuario">
+        <ScalarProperty Name="Codigo" ColumnName="UsuarioPlan_Plan_Codigo" />
+      </EndProperty>
+      <EndProperty Name="Plan">
+        <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UsuarioControl" TypeName="Modelo.UsuarioControl" StoreEntitySet="Controles">
+      <EndProperty Name="Usuario">
+        <ScalarProperty Name="Codigo" ColumnName="UsuarioControl_Control_Codigo" />
+      </EndProperty>
+      <EndProperty Name="Control">
+        <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">

@@ -8,10 +8,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" Background="#FF00AAD4" BorderBrush="#FF00AAD4" Foreground="#FF00AAD4">
 	<phone:PhoneApplicationPage.Resources>
 		<DataTemplate x:Key="ItemTemplate">
 			<StackPanel>
@@ -19,17 +18,21 @@
 			</StackPanel>
 		</DataTemplate>
 		<DataTemplate x:Key="ItemTemplate1">
-			<StackPanel Orientation="Horizontal" Margin="0,0,0,60">
-				<Image Source="{Binding Icono}" HorizontalAlignment="Left" Height="108" Width="106" RenderTransformOrigin="0.5,0.563" Margin="0,0,30,0"/>
-				<StackPanel Orientation="Vertical" Width="95">
-					<TextBlock Text="{Binding Programas}" Margin="0,20,-209,0" FontSize="64" Foreground="#FFFEFDFD"/>
-				</StackPanel>
+			<StackPanel Margin="0,0,0,60" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+				<Button x:Name="btnPlanes" BorderThickness="0,0,0,0" Margin="0,0,-420,0" Width="457" VerticalAlignment="Top" Click="btnPlanes_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" ClickMode="Hover">
+					<StackPanel Height="108" Orientation="Horizontal" Margin="20,0">
+						<Image Source="{Binding Icono}" HorizontalAlignment="Left" Width="106" RenderTransformOrigin="0.5,0.563" Margin="-150,0,50,0"/>
+						<StackPanel Orientation="Vertical" Width="95" d:LayoutOverrides="Height" Margin="-40,0,70,0">
+							<TextBlock Text="{Binding Programas}" Margin="0,20,-240,0" FontSize="64" Foreground="#FFFEFDFD" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						</StackPanel>
+					</StackPanel>
+				</Button>
 			</StackPanel>
 		</DataTemplate>
 	</phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
-    <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{Binding Source={StaticResource SampleDataSource}}">
+    <Grid x:Name="LayoutRoot" Background="#FF00AAD4" DataContext="{Binding Source={StaticResource SampleDataSource}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -38,20 +41,22 @@
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <Rectangle Fill="#FF00AAD4" Margin="0,8,8,0" Grid.Row="1" Stroke="Black"/>
-        <StackPanel x:Name="TitlePanel" Grid.Row="1" Margin="16,10,-4,0" Height="116" VerticalAlignment="Top">
-        	<TextBlock x:Name="GymApp" Text="gym app" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#FFFEFDFD" FontSize="29.333"/>
-        	<TextBlock x:Name="Programas1" Margin="8,-30,0,0" Style="{StaticResource PhoneTextTitle1Style}" Text="Home" Foreground="#FF00AAD4" Height="158" RenderTransformOrigin="0.499,0.772" FontSize="93.333"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="1" Margin="0,4,12,0" Height="116" VerticalAlignment="Top" Background="#FF00AAD4">
+        	<TextBlock x:Name="GymApp" Text="gym app" Style="{StaticResource PhoneTextNormalStyle}" FontSize="29.333" Foreground="#FFF7FBFC"/>
+        	<TextBlock x:Name="Programas1" Margin="8,-30,0,0" Style="{StaticResource PhoneTextTitle1Style}" Text="Home" Foreground="#FFF7FBFC" Height="158" RenderTransformOrigin="0.499,0.772" FontSize="93.333"/>
         </StackPanel>
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="16,154,8,-154">
-        	<ListBox ItemTemplate="{StaticResource ItemTemplate1}" ItemsSource="{Binding Collection}" Margin="8"/>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,148,0,0" Background="#FF00AAD4">
+        	<Grid.ColumnDefinitions>
+        		<ColumnDefinition Width="0.634*"/>
+        		<ColumnDefinition Width="0.366*"/>
+        	</Grid.ColumnDefinitions>
+        	<ListBox ItemTemplate="{StaticResource ItemTemplate1}" ItemsSource="{Binding Collection}" Margin="8,8,8,152" Grid.ColumnSpan="2" Foreground="#FF00AAD4" Background="#FF00AAD4" BorderBrush="#FF00AAD4"/>
         </Grid>
     </Grid>
  
     <!--Código de ejemplo que muestra el uso de ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton x:Name="btnSiguiente" IconUri="/icons/appbar.next.rest.png" Text="Next" Click="btnSiguiente_Click"/>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" BackgroundColor="#FF00AAD4" ForegroundColor="#FF00AAD4">
             <shell:ApplicationBar.MenuItems>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
